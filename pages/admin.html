@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de administración · Casa Hidalgo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script type="module" src="../js/admin.js"></script>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      Casa Hidalgo
+      <span class="badge-admin">ADMIN</span>
+    </a>
+    <div class="nav-derecha">
+      <span class="nav-saludo">Hola, <span id="nombre-admin">...</span></span>
+      <button class="btn-nav peligro" id="btn-logout">Salir</button>
+    </div>
+  </nav>
+
+  <div class="contenido">
+    <h1>Panel de administración</h1>
+    <p class="subtitulo">Gestiona reservas, usuarios y consulta las estadísticas del restaurante</p>
+
+    <div class="stats" id="stats">
+      <div class="stat"><div class="label">Reservas hoy</div><div class="valor" id="stat-hoy">0</div></div>
+      <div class="stat"><div class="label">Pendientes</div><div class="valor" id="stat-pendientes">0</div></div>
+      <div class="stat"><div class="label">Confirmadas</div><div class="valor" id="stat-confirmadas">0</div></div>
+      <div class="stat"><div class="label">Total reservas</div><div class="valor" id="stat-total">0</div></div>
+      <div class="stat"><div class="label">Usuarios</div><div class="valor" id="stat-usuarios">0</div></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn activo" data-tab="reservas">Reservas</button>
+      <button class="tab-btn" data-tab="usuarios">Usuarios</button>
+    </div>
+
+    <div class="tab-contenido activo" id="tab-reservas">
+      <div class="filtros">
+        <input type="text" id="buscar-reserva" placeholder="Buscar por cliente o email...">
+        <select id="filtro-estado">
+          <option value="todos">Todos los estados</option>
+          <option value="pendiente">Pendientes</option>
+          <option value="confirmada">Confirmadas</option>
+          <option value="cancelada">Canceladas</option>
+        </select>
+        <select id="filtro-fecha">
+          <option value="todas">Todas las fechas</option>
+          <option value="hoy">Hoy</option>
+          <option value="semana">Esta semana</option>
+          <option value="futuras">Futuras</option>
+          <option value="pasadas">Pasadas</option>
+        </select>
+      </div>
+
+      <div class="tabla-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Cliente</th>
+              <th>Mesa</th>
+              <th>Personas</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-reservas">
+            <tr><td colspan="7" class="cargando">Cargando reservas...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-contenido" id="tab-usuarios">
+      <div class="filtros">
+        <input type="text" id="buscar-usuario" placeholder="Buscar por nombre o email...">
+        <select id="filtro-rol">
+          <option value="todos">Todos los roles</option>
+          <option value="cliente">Clientes</option>
+          <option value="admin">Administradores</option>
+        </select>
+      </div>
+
+      <div class="tabla-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Reservas</th>
+              <th>Fecha alta</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-usuarios">
+            <tr><td colspan="5" class="cargando">Cargando usuarios...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

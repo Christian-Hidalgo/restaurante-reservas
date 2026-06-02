@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva reserva · Casa Hidalgo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/nueva-reserva.css">
+  <script type="module" src="../js/nueva-reserva.js"></script>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Casa Hidalgo</a>
+    <div class="nav-derecha">
+      <span class="nav-saludo">Hola, <span id="nombre-usuario">...</span></span>
+      <div class="nav-links">
+        <a href="dashboard.html" class="btn-nav">Mis reservas</a>
+        <a href="perfil.html" class="btn-nav">Mi perfil</a>
+        <button class="btn-nav peligro" id="btn-logout">Salir</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="contenido">
+    <p class="breadcrumb"><a href="dashboard.html">Mis reservas</a> · Nueva reserva</p>
+
+    <h1>Nueva reserva</h1>
+    <p class="subtitulo">Reserva tu mesa en pocos pasos</p>
+
+    <div class="stepper">
+      <div class="step activo" id="step-1">
+        <div class="step-numero">1</div>
+        <span>Fecha y hora</span>
+      </div>
+      <div class="step-linea"></div>
+      <div class="step" id="step-2">
+        <div class="step-numero">2</div>
+        <span>Mesa</span>
+      </div>
+      <div class="step-linea"></div>
+      <div class="step" id="step-3">
+        <div class="step-numero">3</div>
+        <span>Confirmar</span>
+      </div>
+    </div>
+
+    <div class="alerta" id="alerta"></div>
+
+    <div class="seccion-form">
+      <h2>¿Cuándo quieres venir?</h2>
+      <div class="fila">
+        <div class="campo">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha">
+          <span class="msg-error" id="error-fecha">Elige una fecha válida</span>
+        </div>
+        <div class="campo">
+          <label for="hora">Hora</label>
+          <select id="hora">
+            <option value="">Selecciona una hora</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="20:00">20:00</option>
+            <option value="20:30">20:30</option>
+            <option value="21:00">21:00</option>
+            <option value="21:30">21:30</option>
+            <option value="22:00">22:00</option>
+            <option value="22:30">22:30</option>
+          </select>
+          <span class="msg-error" id="error-hora">Selecciona una hora</span>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="comensales">Número de comensales</label>
+        <select id="comensales">
+          <option value="">¿Cuántos seréis?</option>
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+          <option value="5">5 personas</option>
+          <option value="6">6 personas</option>
+          <option value="7">7 personas</option>
+          <option value="8">8 personas</option>
+        </select>
+        <span class="msg-error" id="error-comensales">Indica cuántas personas seréis</span>
+      </div>
+    </div>
+
+    <div class="seccion-form">
+      <h2>Elige tu mesa</h2>
+      <div class="mesas-grid" id="mesas-grid">
+        <div class="cargando-mesas">Selecciona fecha, hora y comensales para ver las mesas disponibles</div>
+      </div>
+    </div>
+
+    <div class="seccion-form">
+      <h2>¿Algo más que debamos saber?</h2>
+      <div class="campo">
+        <label for="notas">Notas (opcional)</label>
+        <textarea id="notas" placeholder="Alergias, ocasión especial, peticiones..."></textarea>
+      </div>
+    </div>
+
+    <div class="resumen" id="resumen" style="display:none;">
+      <h3>Resumen de tu reserva</h3>
+      <div class="resumen-fila"><span class="label">Fecha</span><span class="valor" id="r-fecha">-</span></div>
+      <div class="resumen-fila"><span class="label">Hora</span><span class="valor" id="r-hora">-</span></div>
+      <div class="resumen-fila"><span class="label">Comensales</span><span class="valor" id="r-comensales">-</span></div>
+      <div class="resumen-fila"><span class="label">Mesa</span><span class="valor" id="r-mesa">-</span></div>
+    </div>
+
+    <div class="acciones-form">
+      <a href="dashboard.html" class="btn-secundario">Cancelar</a>
+      <button class="btn-primario" id="btn-reservar" disabled>Confirmar reserva</button>
+    </div>
+  </div>
+</body>
+</html>

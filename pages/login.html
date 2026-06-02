@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión · Casa Hidalgo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/login.css">
+  <script type="module" src="../js/login.js"></script>
+</head>
+<body>
+
+  <div class="panel-izquierdo">
+    <a href="../index.html" class="logo">Casa Hidalgo</a>
+
+    <h1>Bienvenido</h1>
+    <p class="subtitulo">Inicia sesión para gestionar tus reservas</p>
+
+    <div class="alerta" id="alerta"></div>
+
+    <div class="campo">
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" placeholder="tucorreo@email.com" autocomplete="email">
+      <span class="msg-error" id="error-email">Introduce un correo válido</span>
+    </div>
+
+    <div class="campo">
+      <label for="password">Contraseña</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Tu contraseña" autocomplete="current-password">
+        <button class="toggle-pass" id="toggle-pass" type="button" aria-label="Mostrar contraseña">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+      <span class="msg-error" id="error-password">Introduce tu contraseña</span>
+    </div>
+
+    <div class="fila-opciones">
+      <label class="recuerdame">
+        <input type="checkbox" id="recuerdame"> Recordarme
+      </label>
+    </div>
+
+    <button class="btn-submit" id="btn-login">Iniciar sesión</button>
+
+    <div class="pie">
+      ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+    </div>
+  </div>
+
+  <div class="panel-derecho">
+    <div class="cita">Tu mesa te está <span>esperando</span></div>
+    <div class="decoracion"></div>
+    <p>Gestiona tus reservas, modifícalas cuando necesites y ven a disfrutar sin preocupaciones.</p>
+  </div>
+</body>
+</html>

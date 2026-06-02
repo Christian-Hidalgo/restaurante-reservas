@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil · Casa Hidalgo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/perfil.css">
+  <script type="module" src="../js/perfil.js"></script>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Casa Hidalgo</a>
+    <div class="nav-derecha">
+      <span class="nav-saludo">Hola, <span id="nombre-usuario">...</span></span>
+      <div class="nav-links">
+        <a href="dashboard.html" class="btn-nav">Mis reservas</a>
+        <a href="nueva-reserva.html" class="btn-nav">Nueva reserva</a>
+        <button class="btn-nav peligro" id="btn-logout">Salir</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="contenido">
+    <p class="breadcrumb"><a href="dashboard.html">Mis reservas</a> · Mi perfil</p>
+
+    <h1>Mi perfil</h1>
+    <p class="subtitulo">Gestiona tu información personal y la seguridad de tu cuenta</p>
+
+    <div class="perfil-cabecera">
+      <div class="avatar" id="avatar">?</div>
+      <div class="perfil-info">
+        <h2 id="perfil-nombre">Cargando...</h2>
+        <p id="perfil-email">...</p>
+        <span class="badge-rol" id="perfil-rol">cliente</span>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Información personal</h3>
+      <p class="desc">Actualiza tu nombre. El correo no se puede modificar.</p>
+
+      <div class="alerta" id="alerta-info"></div>
+
+      <div class="campo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" autocomplete="name">
+        <span class="msg-error" id="error-nombre">Introduce un nombre válido</span>
+      </div>
+
+      <div class="campo">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" disabled>
+      </div>
+
+      <div class="acciones-tarjeta">
+        <button class="btn-guardar" id="btn-guardar-info">Guardar cambios</button>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Cambiar contraseña</h3>
+      <p class="desc">Recomendamos cambiarla cada cierto tiempo por seguridad.</p>
+
+      <div class="alerta" id="alerta-pass"></div>
+
+      <div class="campo">
+        <label for="pass-nueva">Nueva contraseña</label>
+        <div class="password-wrapper">
+          <input type="password" id="pass-nueva" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+          <button class="toggle-pass" id="toggle-nueva" type="button" aria-label="Mostrar contraseña">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <span class="msg-error" id="error-pass-nueva">La contraseña debe tener al menos 6 caracteres</span>
+      </div>
+
+      <div class="campo">
+        <label for="pass-confirmar">Confirmar nueva contraseña</label>
+        <div class="password-wrapper">
+          <input type="password" id="pass-confirmar" placeholder="Repite la nueva contraseña" autocomplete="new-password">
+          <button class="toggle-pass" id="toggle-confirmar" type="button" aria-label="Mostrar contraseña">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <span class="msg-error" id="error-pass-confirmar">Las contraseñas no coinciden</span>
+      </div>
+
+      <div class="acciones-tarjeta">
+        <button class="btn-guardar" id="btn-guardar-pass">Actualizar contraseña</button>
+      </div>
+    </div>
+
+    <div class="tarjeta zona-peligro">
+      <h3>Cerrar sesión en todos los dispositivos</h3>
+      <p class="desc">Si crees que alguien tiene acceso a tu cuenta, puedes cerrar todas las sesiones activas.</p>
+      <div class="acciones-tarjeta" style="justify-content:flex-start;">
+        <button class="btn-peligro" id="btn-cerrar-todo">Cerrar todas las sesiones</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-confirm">
+    <div class="modal">
+      <h3 id="modal-titulo">Confirmar</h3>
+      <p id="modal-mensaje">¿Estás seguro?</p>
+      <div class="modal-botones">
+        <button class="btn-nav" id="modal-no">Cancelar</button>
+        <button class="btn-peligro" id="modal-si">Sí, continuar</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

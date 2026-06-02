@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Hidalgo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <script type="module" src="js/index.js"></script>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-logo">Casa Hidalgo</div>
+    <div class="nav-links">
+      <a href="#propuesta">Nuestra propuesta</a>
+      <a href="pages/login.html" id="link-login">Iniciar sesión</a>
+      <a href="pages/registro.html" class="btn-reservar" id="link-reservar">Reservar mesa</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <p class="hero-subtitulo">Cocina honesta · Cáceres</p>
+    <h1>Bienvenido a<br>Casa Hidalgo</h1>
+    <p>Un restaurante nuevo con las ideas claras: producto fresco, trato cercano y una carta que cambia con la temporada.</p>
+    <div class="hero-botones">
+      <a href="pages/registro.html" class="btn-primary" id="btn-hero">Reservar mesa</a>
+      <a href="#propuesta" class="btn-secondary">Saber más</a>
+    </div>
+    <p class="sesion-activa-msg" id="sesion-msg">Bienvenido de nuevo — <a href="pages/dashboard.html" style="color:#c9a84c;">ir a mis reservas</a></p>
+  </section>
+
+  <div class="divisor">
+    <span></span>
+    <i>✦</i>
+    <span></span>
+  </div>
+
+  <section class="seccion" id="propuesta">
+    <p class="seccion-titulo">Lo que nos mueve</p>
+    <h2>Sin rodeos,<br>solo buena cocina</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icono">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+            </svg>
+        </div>
+        <h3>Producto de temporada</h3>
+        <p>Trabajamos con proveedores locales de Extremadura. Lo que está en la carta es lo que está en su mejor momento, sin más.</p>
+      </div>
+      <div class="card">
+        <div class="card-icono">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 3"/>
+            </svg>
+        </div>
+        <h3>Carta sencilla y directa</h3>
+        <p>Pocos platos pero bien hechos. Preferimos dominar diez recetas a medias tintas que ofrecer cincuenta a medias.</p>
+      </div>
+      <div class="card">
+        <div class="card-icono">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+        </div>
+        <h3>Trato sin formalismos</h3>
+        <p>Somos un restaurante nuevo y tenemos ganas de conocer a nuestra gente. Aquí se viene a disfrutar, sin etiquetas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-cta">
+    <h2>¿Te apetece venir<br>a conocernos?</h2>
+    <p>Reserva tu mesa y ven a probar lo que estamos haciendo en Cáceres</p>
+    <a href="pages/registro.html" class="btn-primary">Reservar ahora</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Casa Hidalgo</div>
+    <p>Cáceres, Extremadura &nbsp;·&nbsp; reservas@casahidalgo.es</p>
+    <p>© 2025 Casa Hidalgo. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
