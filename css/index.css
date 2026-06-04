@@ -95,13 +95,13 @@ nav.scrolled {
 }
 
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 120px 20px 60px;
   background: radial-gradient(ellipse at center, #1a1409 0%, #0a0a0a 70%);
 }
 
