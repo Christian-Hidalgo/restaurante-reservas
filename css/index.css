@@ -111,8 +111,6 @@ nav.scrolled {
   color: #c9a84c;
   text-transform: uppercase;
   margin-bottom: 24px;
-  opacity: 0;
-  transform: translateY(20px);
   transition: opacity 0.8s, transform 0.8s;
 }
 
@@ -123,8 +121,6 @@ nav.scrolled {
   line-height: 1.1;
   margin-bottom: 24px;
   color: #f0ead6;
-  opacity: 0;
-  transform: translateY(20px);
   transition: opacity 0.8s 0.2s, transform 0.8s 0.2s;
 }
 
@@ -135,8 +131,6 @@ nav.scrolled {
   line-height: 1.8;
   margin-bottom: 48px;
   font-weight: 300;
-  opacity: 0;
-  transform: translateY(20px);
   transition: opacity 0.8s 0.4s, transform 0.8s 0.4s;
 }
 
@@ -145,15 +139,21 @@ nav.scrolled {
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: 0;
-  transform: translateY(20px);
   transition: opacity 0.8s 0.6s, transform 0.8s 0.6s;
 }
 
-.hero.visible .hero-subtitulo,
-.hero.visible h1,
-.hero.visible p,
-.hero.visible .hero-botones {
+.hero.animar .hero-subtitulo,
+.hero.animar h1,
+.hero.animar p,
+.hero.animar .hero-botones {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero.animar.visible .hero-subtitulo,
+.hero.animar.visible h1,
+.hero.animar.visible p,
+.hero.animar.visible .hero-botones {
   opacity: 1;
   transform: translateY(0);
 }

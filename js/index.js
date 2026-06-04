@@ -1,4 +1,5 @@
 import { supabase } from './supabase.js'
+document.getElementById('hero').classList.add('animar')
 
 // --- Navbar: cambia de aspecto al hacer scroll ---
 const navbar = document.getElementById('navbar')
@@ -6,8 +7,8 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 40)
 })
 
-// --- Animación de entrada del hero al cargar ---
-window.addEventListener('load', () => {
+// --- Animación de entrada del hero ---
+requestAnimationFrame(() => {
   document.getElementById('hero').classList.add('visible')
 })
 
