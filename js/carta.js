@@ -93,5 +93,21 @@ document.querySelectorAll('.filtro-cat').forEach(btn => {
   })
 })
 
+// --- Menú hamburguesa móvil ---
+const btnHamburguesa = document.getElementById('hamburguesa')
+const navLinks       = document.getElementById('nav-links')
+
+btnHamburguesa.addEventListener('click', () => {
+  btnHamburguesa.classList.toggle('abierto')
+  navLinks.classList.toggle('abierto')
+})
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    btnHamburguesa.classList.remove('abierto')
+    navLinks.classList.remove('abierto')
+  })
+})
+
 // --- Cargar al inicio ---
 cargarPlatos()
