@@ -411,12 +411,61 @@ nav {
   text-align: center;
 }
 
-@media (max-width: 640px) {
-  nav { padding: 16px 20px; }
+@media (max-width: 768px) {
+  nav {
+    padding: 14px 16px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .nav-logo {
+    text-align: center;
+  }
+
+  .nav-derecha {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-saludo {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-nav {
+    padding: 8px 12px;
+    font-size: 12px;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
   .contenido { padding: 32px 16px; }
+
+  .cabecera h1 { font-size: 26px; }
+
   .reserva-card { grid-template-columns: 1fr; gap: 16px; }
-  .reserva-acciones { align-items: flex-start; flex-direction: row; justify-content: space-between; flex-wrap: wrap; }
+
+  .reserva-acciones {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
   .estrella { font-size: 32px; }
+
   .modal-botones-valorar { flex-direction: column-reverse; }
   .modal-botones-valorar .btn-nav { width: 100%; }
 }
