@@ -368,3 +368,9 @@
 .fila {
   grid-template-columns: 1fr;
 }
+
+.campo input,
+.campo select {
+  width: 100%;
+  box-sizing: border-box;
+}
