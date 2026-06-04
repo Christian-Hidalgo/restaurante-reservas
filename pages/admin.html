@@ -24,7 +24,7 @@
 
   <div class="contenido">
     <h1>Panel de administración</h1>
-    <p class="subtitulo">Gestiona reservas, usuarios y consulta las estadísticas del restaurante</p>
+    <p class="subtitulo">Gestiona reservas, usuarios, la carta del restaurante y consulta las estadísticas</p>
 
     <div class="stats" id="stats">
       <div class="stat"><div class="label">Reservas hoy</div><div class="valor" id="stat-hoy">0</div></div>
@@ -37,6 +37,9 @@
     <div class="tabs">
       <button class="tab-btn activo" data-tab="reservas">Reservas</button>
       <button class="tab-btn" data-tab="usuarios">Usuarios</button>
+      <button class="tab-btn" data-tab="carta">Carta</button>
+      <button class="tab-btn" data-tab="mensajes">Mensajes <span class="badge-cuenta" id="badge-mensajes-sin-leer"></span></button>
+      <button class="tab-btn" data-tab="valoraciones">Valoraciones</button>
     </div>
 
     <div class="tab-contenido activo" id="tab-reservas">
@@ -104,6 +107,228 @@
         </table>
       </div>
     </div>
+
+    <div class="tab-contenido" id="tab-carta">
+      <div class="cabecera-carta">
+        <div class="filtros">
+          <input type="text" id="buscar-plato" placeholder="Buscar plato...">
+          <select id="filtro-categoria">
+            <option value="todas">Todas las categorías</option>
+            <option value="entrantes">Entrantes</option>
+            <option value="principales">Principales</option>
+            <option value="postres">Postres</option>
+            <option value="bebidas">Bebidas</option>
+          </select>
+        </div>
+        <button class="btn-add" id="btn-nuevo-plato">+ Nuevo plato</button>
+      </div>
+
+      <div class="tabla-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-platos">
+            <tr><td colspan="6" class="cargando">Cargando platos...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-contenido" id="tab-mensajes">
+      <div class="filtros">
+        <input type="text" id="buscar-mensaje" placeholder="Buscar por nombre, email o contenido...">
+        <select id="filtro-motivo">
+          <option value="todos">Todos los motivos</option>
+          <option value="consulta">Consulta general</option>
+          <option value="eventos">Eventos privados</option>
+          <option value="sugerencia">Sugerencia</option>
+          <option value="queja">Queja o reclamación</option>
+        </select>
+        <select id="filtro-leido">
+          <option value="todos">Todos</option>
+          <option value="no-leidos">Sin leer</option>
+          <option value="leidos">Leídos</option>
+        </select>
+      </div>
+
+      <div class="tabla-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Remitente</th>
+              <th>Motivo</th>
+              <th>Mensaje</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-mensajes">
+            <tr><td colspan="6" class="cargando">Cargando mensajes...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tab-contenido" id="tab-valoraciones">
+      <div class="filtros">
+        <input type="text" id="buscar-valoracion" placeholder="Buscar por cliente o comentario...">
+        <select id="filtro-puntuacion">
+          <option value="todas">Todas las puntuaciones</option>
+          <option value="5">5 estrellas</option>
+          <option value="4">4 estrellas</option>
+          <option value="3">3 estrellas</option>
+          <option value="2">2 estrellas</option>
+          <option value="1">1 estrella</option>
+        </select>
+      </div>
+
+      <div class="tabla-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Puntuación</th>
+              <th>Comentario</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-valoraciones">
+            <tr><td colspan="5" class="cargando">Cargando valoraciones...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+
+  <!-- Modal de plato (nuevo / editar) -->
+  <div class="modal-overlay" id="modal-plato">
+    <div class="modal-plato">
+      <h3 id="modal-titulo-plato">Nuevo plato</h3>
+
+      <div class="alerta" id="alerta-plato"></div>
+
+      <div class="campo-modal">
+        <label for="plato-nombre">Nombre</label>
+        <input type="text" id="plato-nombre" placeholder="Croquetas caseras">
+      </div>
+
+      <div class="campo-modal">
+        <label for="plato-descripcion">Descripción</label>
+        <textarea id="plato-descripcion" placeholder="Breve descripción del plato"></textarea>
+      </div>
+
+      <div class="campo-modal-fila">
+        <div class="campo-modal">
+          <label for="plato-precio">Precio (€)</label>
+          <input type="number" id="plato-precio" step="0.50" min="0" placeholder="9.50">
+        </div>
+        <div class="campo-modal">
+          <label for="plato-categoria">Categoría</label>
+          <select id="plato-categoria">
+            <option value="entrantes">Entrantes</option>
+            <option value="principales">Principales</option>
+            <option value="postres">Postres</option>
+            <option value="bebidas">Bebidas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo-modal">
+        <label>Imagen del plato</label>
+        <div class="upload-zona" id="upload-zona">
+          <input type="file" id="plato-imagen-input" accept="image/*" style="display:none;">
+          <div id="upload-preview">
+            <p>Haz clic para subir una imagen</p>
+            <small>PNG, JPG o WEBP (máx. 5 MB)</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo-modal-checkbox">
+        <input type="checkbox" id="plato-disponible" checked>
+        <label for="plato-disponible">Disponible en la carta</label>
+      </div>
+
+      <div class="modal-botones">
+        <button class="btn-nav" id="cancelar-plato">Cancelar</button>
+        <button class="btn-add" id="guardar-plato">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal confirmar eliminar plato -->
+  <div class="modal-overlay" id="modal-eliminar">
+    <div class="modal-plato" style="max-width:420px;">
+      <h3>Eliminar plato</h3>
+      <p style="color:#9a8e78;font-size:14px;margin:12px 0 28px;line-height:1.6;font-weight:300;">¿Estás seguro de que quieres eliminar este plato? Esta acción no se puede deshacer.</p>
+      <div class="modal-botones">
+        <button class="btn-nav" id="cancelar-eliminar">Cancelar</button>
+        <button class="btn-add" id="confirmar-eliminar" style="background:#c0392b;border-color:#c0392b;">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de ver mensaje completo -->
+  <div class="modal-overlay" id="modal-mensaje">
+    <div class="modal-plato">
+      <h3 id="modal-mensaje-titulo">Mensaje</h3>
+
+      <div class="info-mensaje">
+        <div class="info-mensaje-fila">
+          <span class="info-mensaje-label">De</span>
+          <span class="info-mensaje-valor" id="ver-mensaje-de">-</span>
+        </div>
+        <div class="info-mensaje-fila">
+          <span class="info-mensaje-label">Email</span>
+          <span class="info-mensaje-valor" id="ver-mensaje-email">-</span>
+        </div>
+        <div class="info-mensaje-fila" id="fila-telefono">
+          <span class="info-mensaje-label">Teléfono</span>
+          <span class="info-mensaje-valor" id="ver-mensaje-telefono">-</span>
+        </div>
+        <div class="info-mensaje-fila">
+          <span class="info-mensaje-label">Motivo</span>
+          <span class="info-mensaje-valor" id="ver-mensaje-motivo">-</span>
+        </div>
+        <div class="info-mensaje-fila">
+          <span class="info-mensaje-label">Fecha</span>
+          <span class="info-mensaje-valor" id="ver-mensaje-fecha">-</span>
+        </div>
+      </div>
+
+      <div class="mensaje-contenido">
+        <h4>Mensaje</h4>
+        <p id="ver-mensaje-texto"></p>
+      </div>
+
+      <div class="modal-botones">
+        <button class="btn-nav" id="cerrar-mensaje">Cerrar</button>
+        <button class="btn-add" id="eliminar-mensaje" style="background:#c0392b;border-color:#c0392b;">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal confirmar eliminar valoración -->
+  <div class="modal-overlay" id="modal-eliminar-valoracion">
+    <div class="modal-plato" style="max-width:420px;">
+      <h3>Eliminar valoración</h3>
+      <p style="color:#9a8e78;font-size:14px;margin:12px 0 28px;line-height:1.6;font-weight:300;">¿Estás seguro de que quieres eliminar esta valoración? La reseña dejará de aparecer en la página pública.</p>
+      <div class="modal-botones">
+        <button class="btn-nav" id="cancelar-eliminar-valoracion">Cancelar</button>
+        <button class="btn-add" id="confirmar-eliminar-valoracion" style="background:#c0392b;border-color:#c0392b;">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

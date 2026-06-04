@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestra carta · Casa Hidalgo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/carta.css">
+  <script type="module" src="../js/carta.js"></script>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">Casa Hidalgo</a>
+    <div class="nav-links">
+      <a href="../index.html">Inicio</a>
+      <a href="carta.html" class="activo">Carta</a>
+      <a href="valoraciones.html">Valoraciones</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html" id="link-login">Iniciar sesión</a>
+      <a href="registro.html" class="btn-reservar" id="link-reservar">Reservar mesa</a>
+    </div>
+  </nav>
+
+  <section class="cabecera">
+    <p class="cabecera-subtitulo">Nuestra propuesta gastronómica</p>
+    <h1>La carta</h1>
+    <p class="cabecera-descripcion">Una selección reducida pero cuidada. Cambiamos con la temporada para ofrecer siempre el mejor producto.</p>
+  </section>
+
+  <div class="filtros-categoria">
+    <button class="filtro-cat activo" data-cat="todas">Toda la carta</button>
+    <button class="filtro-cat" data-cat="entrantes">Entrantes</button>
+    <button class="filtro-cat" data-cat="principales">Principales</button>
+    <button class="filtro-cat" data-cat="postres">Postres</button>
+    <button class="filtro-cat" data-cat="bebidas">Bebidas</button>
+  </div>
+
+  <main id="contenedor-carta">
+    <div class="cargando">Cargando carta...</div>
+  </main>
+
+  <section class="seccion-cta">
+    <h2>¿Te ha abierto el apetito?</h2>
+    <p>Reserva tu mesa y ven a probar la carta completa</p>
+    <a href="registro.html" class="btn-primary">Reservar mesa</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Casa Hidalgo</div>
+    <p>Cáceres, Extremadura &nbsp;·&nbsp; reservas@casahidalgo.es</p>
+    <p>© 2025 Casa Hidalgo. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

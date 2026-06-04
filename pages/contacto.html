@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto · Casa Hidalgo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/contacto.css">
+  <script type="module" src="../js/contacto.js"></script>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">Casa Hidalgo</a>
+    <div class="nav-links">
+      <a href="../index.html">Inicio</a>
+      <a href="carta.html">Carta</a>
+      <a href="valoraciones.html">Valoraciones</a>
+      <a href="contacto.html" class="activo">Contacto</a>
+      <a href="login.html" id="link-login">Iniciar sesión</a>
+      <a href="registro.html" class="btn-reservar" id="link-reservar">Reservar mesa</a>
+    </div>
+  </nav>
+
+  <section class="cabecera">
+    <p class="cabecera-subtitulo">Estamos aquí</p>
+    <h1>Contacto</h1>
+    <p class="cabecera-descripcion">¿Tienes alguna pregunta, quieres organizar un evento o simplemente saludarnos? Escríbenos.</p>
+  </section>
+
+  <main class="contenido">
+    <div class="grid-contacto">
+
+      <div class="info-contacto">
+        <h2>Datos de contacto</h2>
+
+        <div class="info-bloque">
+          <div class="info-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Dirección</h3>
+            <p>Calle Pintores, 12<br>10003 Cáceres, Extremadura</p>
+          </div>
+        </div>
+
+        <div class="info-bloque">
+          <div class="info-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Teléfono</h3>
+            <p>+34 927 123 456</p>
+          </div>
+        </div>
+
+        <div class="info-bloque">
+          <div class="info-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <p>reservas@casahidalgo.es</p>
+          </div>
+        </div>
+
+        <div class="info-bloque">
+          <div class="info-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Horario</h3>
+            <p>Martes a sábado<br>13:00 - 16:00 &nbsp;·&nbsp; 20:00 - 23:30<br><span class="cerrado">Cerrado domingos y lunes</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-contacto">
+        <h2>Escríbenos</h2>
+        <p class="form-intro">Te responderemos en menos de 24 horas.</p>
+
+        <div class="alerta" id="alerta"></div>
+
+        <form id="form-contacto" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" autocomplete="name">
+            <span class="msg-error" id="error-nombre">Introduce un nombre válido</span>
+          </div>
+
+          <div class="fila">
+            <div class="campo">
+              <label for="email">Email</label>
+              <input type="email" id="email" autocomplete="email">
+              <span class="msg-error" id="error-email">Introduce un email válido</span>
+            </div>
+
+            <div class="campo">
+              <label for="telefono">Teléfono <span class="opcional">(opcional)</span></label>
+              <input type="tel" id="telefono" autocomplete="tel">
+              <span class="msg-error" id="error-telefono">Introduce un teléfono válido</span>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="motivo">Motivo de contacto</label>
+            <select id="motivo">
+              <option value="">Selecciona un motivo</option>
+              <option value="consulta">Consulta general</option>
+              <option value="eventos">Eventos privados</option>
+              <option value="sugerencia">Sugerencia</option>
+              <option value="queja">Queja o reclamación</option>
+            </select>
+            <span class="msg-error" id="error-motivo">Selecciona un motivo</span>
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" rows="5" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+            <span class="msg-error" id="error-mensaje">Escribe tu mensaje (mínimo 10 caracteres)</span>
+          </div>
+
+          <button type="submit" class="btn-enviar" id="btn-enviar">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+
+    <section class="seccion-mapa">
+      <h2>Cómo llegar</h2>
+      <p class="mapa-descripcion">Nos encontrarás en pleno casco histórico de Cáceres, a dos minutos andando de la Plaza Mayor.</p>
+      <div class="mapa-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3093.738654!2d-6.3725!3d39.4753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDI4JzMxLjEiTiA2wrAyMicyMS4wIlc!5e0!3m2!1ses!2ses!4v1700000000000"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Casa Hidalgo</div>
+    <p>Cáceres, Extremadura &nbsp;·&nbsp; reservas@casahidalgo.es</p>
+    <p>© 2025 Casa Hidalgo. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>

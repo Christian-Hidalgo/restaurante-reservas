@@ -54,5 +54,39 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal valorar visita -->
+  <div class="modal-overlay" id="modal-valorar">
+    <div class="modal modal-valoracion">
+      <h3 id="modal-valorar-titulo">Valorar tu visita</h3>
+      <p class="modal-valorar-info" id="modal-valorar-info">Reserva del...</p>
+
+      <div class="alerta-valoracion" id="alerta-valoracion"></div>
+
+      <div class="campo-valoracion">
+        <label>Tu puntuación</label>
+        <div class="estrellas-selector" id="estrellas-selector">
+          <span class="estrella" data-valor="1">★</span>
+          <span class="estrella" data-valor="2">★</span>
+          <span class="estrella" data-valor="3">★</span>
+          <span class="estrella" data-valor="4">★</span>
+          <span class="estrella" data-valor="5">★</span>
+        </div>
+        <p class="puntuacion-texto" id="puntuacion-texto">Selecciona una puntuación</p>
+      </div>
+
+      <div class="campo-valoracion">
+        <label for="comentario-valoracion">Comentario <span class="opcional">(opcional)</span></label>
+        <textarea id="comentario-valoracion" placeholder="Cuéntanos qué te pareció tu experiencia..." rows="4"></textarea>
+      </div>
+
+      <div class="modal-botones modal-botones-valorar">
+        <button class="btn-nav" id="cancelar-valorar">Cancelar</button>
+        <button class="btn-nav peligro" id="eliminar-valorar" style="display:none;border-color:#c0392b;color:#c0392b;">Eliminar</button>
+        <button class="btn-nav primario" id="guardar-valorar">Guardar valoración</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
