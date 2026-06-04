@@ -364,3 +364,7 @@
   text-align: center;
   white-space: nowrap;
 }
+
+.fila {
+  grid-template-columns: 1fr;
+}
